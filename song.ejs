@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= song.title %> by <%= song.artist %></title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #181818;
+            margin: 0;
+            padding: 20px;
+            color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #282828;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1db954;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        audio {
+            display: block;
+            margin: 20px auto;
+            width: 100%;
+            background: #333;
+            border-radius: 4px;
+        }
+
+        .lyrics {
+            background: #333;
+            padding: 15px;
+            border-left: 5px solid #1db954;
+            margin-top: 20px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-size: 16px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            color: #1db954;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .lyrics {
+                font-size: 14px;
+            }
+
+            .back-link {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><%= song.title %> by: <%= song.artist %></h1>
+        <img src="/uploads/1727211998056.jpg" alt="<%= song.title %> cover">
+        <p>Image URL: <%= song.image %></p>
+        <audio controls>
+            <source src="<%= song.file_path %>" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <a class="back-link" href="/">Back to Playlist</a>
+    </div>
+</body>
+</html>
